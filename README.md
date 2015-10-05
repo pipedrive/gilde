@@ -2,7 +2,7 @@
 
 Time-based hash checksum creation/validation library.
 
-[![npm version](https://badge.fury.io/js/gilde.svg)](http://badge.fury.io/js/gilde)
+[![npm version](https://badge.fury.io/js/gilde.svg)](http://badge.fury.io/js/gilde) [![Build status](https://travis-ci.org/pipedrive/gilde.svg)](https://travis-ci.org/pipedrive/gilde)
 
 ## Use cases
 
