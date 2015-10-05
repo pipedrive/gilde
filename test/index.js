@@ -1,6 +1,8 @@
 var assert = require('assert'),
 	sinon = require('sinon');
 
+require('coveralls');
+
 describe('hasher', function() {
 	it('should throw up if default shared secret is used', function(done) {
 		var gilde = require('../'),
