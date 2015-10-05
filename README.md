@@ -1,6 +1,6 @@
 # gilde
 
-Time-based hash checksum creation/validation library.
+Time and shared secret based hash creation/validation library.
 
 [![npm version](https://badge.fury.io/js/gilde.svg)](http://badge.fury.io/js/gilde) [![Build status](https://travis-ci.org/pipedrive/gilde.svg)](https://travis-ci.org/pipedrive/gilde) [![Coverage Status](https://coveralls.io/repos/pipedrive/gilde/badge.svg?branch=master&service=github&)](https://coveralls.io/github/pipedrive/gilde?branch=master)
 
