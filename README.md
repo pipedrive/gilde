@@ -2,7 +2,7 @@
 
 Time-based hash checksum creation/validation library.
 
-[![npm version](https://badge.fury.io/js/gilde.svg)](http://badge.fury.io/js/gilde)
+[![npm version](https://badge.fury.io/js/gilde.svg)](http://badge.fury.io/js/gilde) [![Build status](https://travis-ci.org/pipedrive/gilde.svg)](https://travis-ci.org/pipedrive/gilde) [![Coverage Status](https://coveralls.io/repos/pipedrive/gilde/badge.svg?branch=master&service=github)](https://coveralls.io/github/pipedrive/gilde?branch=master)
 
 ## Use cases
 
@@ -31,12 +31,24 @@ This will create a time and shared secret based derived hash, based on the given
 
 ### Validate a hash
 
+Once you've created a hash, you can validate it, using:
+
 ```javascript
 var result = gilde.validate(hash, data);
 // returns either true or false
 ```
 
-This will return a boolean value of the validation result. Furthermore, you can pass a third argument with options, such as `timeout` which will control how old timestamps are still considered valid.
+This will return a boolean value of the validation result.
+
+#### Validate with options
+
+
+```javascript
+var result = gilde.validate(hash, data, { timeout: 5000 });
+// returns either true or false
+```
+
+Furthermore, you can pass a third argument to `.validate()` — currently, it only supports the `timeout` option which will control the threshold (in milliseconds) of timestamps that are still considered valid. In the given example, any hash older than 5000 milliseconds (5 s) will be considered invalid.
 
 ## How it works
 
