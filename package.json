@@ -7,15 +7,16 @@
     "test": "test"
   },
   "scripts": {
-    "test": "mocha test"
+    "test": "mocha test",
+    "travis-test": "./node_modules/istanbul/lib/cli.js cover ./node_modules/mocha/bin/_mocha -- -R spec ./test/*"
   },
   "author": "martin <martin@pipedrive.com> (http://www.pipedrive.com/)",
   "license": "MIT",
   "devDependencies": {
     "assert": "^1.3.0",
     "coveralls": "^2.11.4",
+    "istanbul": "^0.3.22",
     "mocha": "^2.3.3",
-    "mocha-lcov-reporter": "^1.0.0",
     "sinon": "^1.17.1"
   }
 }
