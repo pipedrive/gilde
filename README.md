@@ -1,6 +1,8 @@
 # gilde
 
-Time-based hash checksum creation/validation library
+Time-based hash checksum creation/validation library.
+
+[![npm version](https://badge.fury.io/js/gilde.svg)](http://badge.fury.io/js/gilde)
 
 ## Use cases
 
