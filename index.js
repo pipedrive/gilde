@@ -1,21 +1,21 @@
 var crypto = require('crypto'),
 	NO_SECRET = 'notasecret',
-	sharedSecret = NO_SECRET,
+	secret = NO_SECRET,
 	separator = ',';
 
-exports.setSharedSecret = function(newSharedSecret) {
-	if (typeof newSharedSecret !== 'string') {
+exports.setSecret = function(newSecret) {
+	if (typeof newSecret !== 'string') {
 		throw new Error('Only strings should be passed in as shared secrets!');
 	}
-	if (newSharedSecret === '') {
+	if (newSecret === '') {
 		throw new Error('Shared secret cannot be an empty string!');
 	}
-	sharedSecret = newSharedSecret;
+	secret = newSecret;
 	return this;
 };
 
 exports.create = function(data, timestamp) {
-	if (sharedSecret === NO_SECRET) {
+	if (secret === NO_SECRET) {
 		throw new Error('You must set a shared secret before creating hashes!');
 	}
 	var shasum = crypto.createHash('sha256'),
@@ -25,7 +25,7 @@ exports.create = function(data, timestamp) {
 		timestamp = new Date().getTime();
 	}
 
-	shasum.update(sharedSecret + separator + JSON.stringify(data) + separator + timestamp);
+	shasum.update(secret + separator + JSON.stringify(data) + separator + timestamp);
 
 	var var1 = shasum.digest('hex') + separator + timestamp;
 	shasum2.update(var1);

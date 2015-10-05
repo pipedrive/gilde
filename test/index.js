@@ -21,7 +21,7 @@ describe('hasher', function() {
 	it('should create valid hashes', function() {
 		var gilde = require('../'),
 			data = { some: 'random data' },
-			hash = gilde.setSharedSecret('secret1').create(data);
+			hash = gilde.setSecret('secret1').create(data);
 
 		assert(hash.match(/^[a-z0-9]{64},[0-9]+$/));
 	});
@@ -30,7 +30,7 @@ describe('hasher', function() {
 		var gilde = require('../'),
 			data = { some: 'random data' },
 			clock = sinon.useFakeTimers(),
-			hash = gilde.setSharedSecret('secret1').create(data);
+			hash = gilde.setSecret('secret1').create(data);
 		
 		assert(gilde.validate(hash, data));
 	});
@@ -39,7 +39,7 @@ describe('hasher', function() {
 		var gilde = require('../'),
 			data = { some: 'random data' },
 			clock = sinon.useFakeTimers(),
-			hash = gilde.setSharedSecret('secret1').create(data);
+			hash = gilde.setSecret('secret1').create(data);
 
 		clock.tick(2500);
 
@@ -50,7 +50,7 @@ describe('hasher', function() {
 		var gilde = require('../'),
 			data = { some: 'random data' },
 			clock = sinon.useFakeTimers(),
-			hash = gilde.setSharedSecret('secret1').create(data);
+			hash = gilde.setSecret('secret1').create(data);
 
 		clock.tick(2500);
 
@@ -61,7 +61,7 @@ describe('hasher', function() {
 		var gilde = require('../'),
 			data = { some: 'random data' },
 			clock = sinon.useFakeTimers(),
-			hash = gilde.setSharedSecret('secret1').create(data);
+			hash = gilde.setSecret('secret1').create(data);
 
 		clock.tick(5500);
 
@@ -73,12 +73,12 @@ describe('hasher', function() {
 			data = { some: 'random data' },
 			clock = sinon.useFakeTimers();
 		
-		gilde.setSharedSecret('secret1');
+		gilde.setSecret('secret1');
 
 		var hash1 = gilde.create(data);
 		var hash2 = gilde.create(data);
 
-		gilde.setSharedSecret('secret2');
+		gilde.setSecret('secret2');
 
 		var hash3 = gilde.create(data);
 
@@ -93,7 +93,7 @@ describe('hasher', function() {
 			clock = sinon.useFakeTimers();
 		
 		try {
-			gilde.setSharedSecret(123);
+			gilde.setSecret(123);
 		} catch(e) {
 			// We expect an error.
 			assert(e.toString().match(/Only strings should be passed in as shared secrets!/ig));
@@ -110,7 +110,7 @@ describe('hasher', function() {
 			clock = sinon.useFakeTimers();
 		
 		try {
-			gilde.setSharedSecret('');
+			gilde.setSecret('');
 		} catch(e) {
 			// We expect an error.
 			assert(e.toString().match(/Shared secret cannot be an empty string!/ig));
