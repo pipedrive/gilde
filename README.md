@@ -64,6 +64,11 @@ The result of calling `gilde.create()` thus returns a string that contains the d
 
 When validating the hashes, `gilde.validate()` requires you to supply the resulting created hash and the underlying data in question. It will then try to recreate the hash using the supplied timestamp and will produce a positive result if both the hash can be recreated (meaning the shared secret is the same and data matches) and time threshold is not exceeded (e.g. hash is validated within N milliseconds after it was first created).
 
+### Gilde vs HMAC
+
+ * Gilde works out of the box with nested objects (You don't have to worry about serialization of the data as such).
+ * Gilde provides out of the box functionality for time based invalidation (which you would have to manually implement on top of the standard HMAC).
+
 ## Licence
 
 MIT.
