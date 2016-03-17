@@ -1,6 +1,6 @@
 {
   "name": "gilde",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Time and shared secret based hash creation/validation library",
   "main": "index.js",
   "directories": {
