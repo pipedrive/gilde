@@ -6,7 +6,7 @@ Time and shared secret based hash creation/validation library.
 
 ## Use cases
 
-Use Gilde to create and validate shared secret and time based hashes derived from any JSON-serializable data.
+Use Gilde to create and validate shared secret and time based hashes derived from any JSON-serializable data. Gilde is mostly useful in a controlled environment (such as a set of microservices within one organization/infrastructure) and not suitable for public-facing authorizations.
 
 
 ## Usage
