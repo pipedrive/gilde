@@ -28,6 +28,15 @@ describe('hasher', function() {
 		assert(hash.match(/^[a-z0-9]{64},[0-9]+$/));
 	});
 
+	it('should take secret from constructor', function() {
+		var Gilde = require('../'),
+			gilde = new Gilde('secret1'),
+			data = { some: 'random data' },
+			hash = gilde.create(data);
+
+		assert(hash.match(/^[a-z0-9]{64},[0-9]+$/));
+	});
+
 	it('should validate hash within default timeout', function() {
 		var Gilde = require('../'),
 			gilde = new Gilde(),
