@@ -3,7 +3,17 @@ var crypto = require('crypto'),
 	secret = NO_SECRET,
 	separator = ',';
 
-exports.setSecret = function(newSecret) {
+function Gilde(secret) {
+	if (secret) {
+		this.setSecret(secret);
+	}
+
+	return this;
+}
+
+module.exports = Gilde;
+
+Gilde.prototype.setSecret = function(newSecret) {
 	if (typeof newSecret !== 'string') {
 		throw new Error('Only strings should be passed in as shared secrets!');
 	}
@@ -14,7 +24,7 @@ exports.setSecret = function(newSecret) {
 	return this;
 };
 
-exports.create = function(data, timestamp) {
+Gilde.prototype.create = function(data, timestamp) {
 	if (secret === NO_SECRET) {
 		throw new Error('You must set a shared secret before creating hashes!');
 	}
@@ -33,7 +43,7 @@ exports.create = function(data, timestamp) {
 	return shasum2.digest('hex') + separator + timestamp;
 };
 
-exports.validate = function(hash, data, opts) {
+Gilde.prototype.validate = function(hash, data, opts) {
 	var defaults = {
 			timeout: 2000
 		},
@@ -44,7 +54,7 @@ exports.validate = function(hash, data, opts) {
 		now = new Date().getTime();
 
 	if (options.timeout > 0 && now - timestamp < options.timeout) {
-		return exports.create(data, timestamp) === hash;
+		return Gilde.prototype.create(data, timestamp) === hash;
 	}
 
 	return false;

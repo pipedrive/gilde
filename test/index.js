@@ -3,7 +3,8 @@ var assert = require('assert'),
 
 describe('hasher', function() {
 	it('should throw up if default shared secret is used', function(done) {
-		var gilde = require('../'),
+		var Gilde = require('../'),
+			gilde = new Gilde(),
 			data = { some: 'random data' };
 
 		try {
@@ -19,7 +20,8 @@ describe('hasher', function() {
 	});
 
 	it('should create valid hashes', function() {
-		var gilde = require('../'),
+		var Gilde = require('../'),
+			gilde = new Gilde(),
 			data = { some: 'random data' },
 			hash = gilde.setSecret('secret1').create(data);
 
@@ -27,7 +29,8 @@ describe('hasher', function() {
 	});
 
 	it('should validate hash within default timeout', function() {
-		var gilde = require('../'),
+		var Gilde = require('../'),
+			gilde = new Gilde(),
 			data = { some: 'random data' },
 			clock = sinon.useFakeTimers(),
 			hash = gilde.setSecret('secret1').create(data);
@@ -36,7 +39,8 @@ describe('hasher', function() {
 	});
 
 	it('should not validate hash after default timeout', function() {
-		var gilde = require('../'),
+		var Gilde = require('../'),
+			gilde = new Gilde(),
 			data = { some: 'random data' },
 			clock = sinon.useFakeTimers(),
 			hash = gilde.setSecret('secret1').create(data);
@@ -47,7 +51,8 @@ describe('hasher', function() {
 	});
 
 	it('should validate hash after 2,5sec given a 5sec timeout', function() {
-		var gilde = require('../'),
+		var Gilde = require('../'),
+			gilde = new Gilde(),
 			data = { some: 'random data' },
 			clock = sinon.useFakeTimers(),
 			hash = gilde.setSecret('secret1').create(data);
@@ -58,7 +63,8 @@ describe('hasher', function() {
 	});
 
 	it('should not validate hash after 5,5sec given a 5sec timeout', function() {
-		var gilde = require('../'),
+		var Gilde = require('../'),
+			gilde = new Gilde(),
 			data = { some: 'random data' },
 			clock = sinon.useFakeTimers(),
 			hash = gilde.setSecret('secret1').create(data);
@@ -69,7 +75,8 @@ describe('hasher', function() {
 	});
 
 	it('should support swapping shared secret strings on the fly', function() {
-		var gilde = require('../'),
+		var Gilde = require('../'),
+			gilde = new Gilde(),
 			data = { some: 'random data' },
 			clock = sinon.useFakeTimers();
 		
@@ -88,7 +95,8 @@ describe('hasher', function() {
 	});
 
 	it('should throw up on non-string shared secrets', function(done) {
-		var gilde = require('../'),
+		var Gilde = require('../'),
+			gilde = new Gilde(),
 			data = { some: 'random data' },
 			clock = sinon.useFakeTimers();
 		
@@ -105,7 +113,8 @@ describe('hasher', function() {
 	});
 
 	it('should throw up on empty string as shared secrets', function(done) {
-		var gilde = require('../'),
+		var Gilde = require('../'),
+			gilde = new Gilde(),
 			data = { some: 'random data' },
 			clock = sinon.useFakeTimers();
 		

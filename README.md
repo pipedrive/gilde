@@ -18,7 +18,8 @@ npm install gilde
 ### Create a hash
 
 ```javascript
-var gilde = require('gilde').setSecret('Thirteen stone columns inside a pyramid.');
+var Gilde = require('gilde'),
+	gilde = new Gilde().setSecret('Thirteen stone columns inside a pyramid.');
 
 var data = {
 	some: 'awesome data'
