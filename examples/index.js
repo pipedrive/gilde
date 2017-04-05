@@ -1,7 +1,8 @@
 ////////////////////////////////////
 // hash creation:
 
-var gilde = require('../index').setSecret('node-meeting-november');
+var Gilde = require('../index'),
+    gilde = new Gilde().setSecret('Thirteen stone columns inside a pyramid.');
 
 var obj = {
 	some: 'data',
