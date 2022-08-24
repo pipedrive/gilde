@@ -1,6 +1,6 @@
 {
   "name": "gilde",
   "description": "Time and shared secret based hash creation/validation library",
-  "owner": "Pipedrive",
+  "owner": "Core Services",
   "type": "library"
 }
