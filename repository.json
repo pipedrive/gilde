@@ -2,5 +2,6 @@
   "name": "gilde",
   "description": "Time and shared secret based hash creation/validation library",
   "owner": "Core Services",
-  "type": "library"
+  "type": "library",
+  "status": "released"
 }
