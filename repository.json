@@ -3,5 +3,5 @@
   "description": "Time and shared secret based hash creation/validation library",
   "owner": "Core Services",
   "type": "library",
-  "status": "released"
+  "status": "archived"
 }
