@@ -1,4 +1,4 @@
-# gilde
+# gilde - DEPRECATED
 
 Time and shared secret based hash creation/validation library.
 
